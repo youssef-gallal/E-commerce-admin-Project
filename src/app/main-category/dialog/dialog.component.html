@@ -1,0 +1,19 @@
+<div class="dialog-container">
+    <header class="text-center">
+        <h2>create Category</h2>
+    </header>
+    <form [formGroup]="dialogform">
+        <div class="">
+            <mat-form-field class="d-inline">
+                <input matInput class="my-3" placeholder="name in english" formControlName="englishname">
+            </mat-form-field>
+            <mat-form-field class="d-inline">
+                <input matInput class="my-3" placeholder="name in arabic" formControlName="arabicname">
+            </mat-form-field>
+        </div>
+        <div mat-dialog-actions style="float: right;">
+            <button mat-button class="btn btn-primary p-2 rounded" mat-dialog-close>Cancel</button>
+            <button mat-button class="btn btn-primary p-2 rounded" type="submit" (click)=" onSubmit()"
+                mat-dialog-close>Submit</button>
+        </div>
+    </form>
