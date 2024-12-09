@@ -1,0 +1,46 @@
+body {
+    background-color: #22282e;
+    border: none;
+}
+
+
+thead tr th {
+
+    background-color: #262d34;
+    color: #aab8c5;
+    padding: 15px 0;
+
+}
+
+tbody tr td {
+
+    background-color: #262d34;
+    color: #aab8c5;
+}
+
+.icon-edit {
+    margin-right: 10px;
+    cursor: pointer;
+    background-color: rgba(255, 108, 47, 0.1);
+    color: #ff6c2f;
+    font-size: 28px;
+
+}
+
+.icon-edit:hover {
+    color: white;
+    background-color: #ff6c2f;
+}
+
+.icon-delete {
+    cursor: pointer;
+    background-color: rgba(239, 95, 95, 0.1);
+    color: #ef5f5f;
+
+}
+
+.icon-delete:hover {
+    background-color: #ef5f5f;
+    color: white;
+
+}

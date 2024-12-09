@@ -3,10 +3,11 @@ import { RouterOutlet } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { LoginComponent } from './login/login.component';
 import { SubCategoryComponent } from './sub-category/sub-category.component';
+import { MainCategoryComponent } from './main-category/main-category.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, SubCategoryComponent],
+  imports: [RouterOutlet, MainCategoryComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
