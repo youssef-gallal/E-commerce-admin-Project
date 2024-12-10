@@ -1,0 +1,72 @@
+.sidenav-container {
+    height: 100%;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+mat-sidenav {
+    width: 250px;
+    padding: 10px 20px;
+    background-color: #22282e;
+    color: white;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 50px;
+    position: sticky;
+    margin-bottom: 30px;
+}
+
+.sidebar-header .header-logo {
+    display: flex;
+    align-items: center;
+    bottom: -3px;
+    position: relative;
+}
+
+.sidebar-header img {
+    max-width: 40px;
+    max-height: 30px;
+    margin-right: 15px;
+}
+
+mat-sidenav.minimized {
+    width: 80px;
+    margin: 0 auto;
+}
+
+mat-nav-list span.top-tilte {
+    cursor: default;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    font-weight: 600;
+    height: 36px;
+    color: #9097a7;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: #9097a7;
+}
+
+.menu-item:hover {
+    color: white;
+}
+
+mat-nav-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+mat-nav-list ul li {
+    padding: 10px 0;
+}
