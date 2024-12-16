@@ -1,0 +1,19 @@
+<div class="bg_black_dark p-3 radius-10">
+    <header>
+        <h2 class="text_white">Create Category</h2>
+    </header>
+    <form [formGroup]="CategoryForm">
+        <div class="">
+            <mat-form-field class="d-inline">
+                <input matInput class="" placeholder="name in english" formControlName="nameEng">
+            </mat-form-field>
+            <mat-form-field class="d-inline">
+                <input matInput class="" placeholder="name in arabic" formControlName="name">
+            </mat-form-field>
+        </div>
+        <div mat-dialog-actions style="float: right;">
+                <app-transparent class="me-2"  mat-dialog-close [title]="'Cancel'"></app-transparent>
+                <app-bg-orange [title]="'Submit'" (click)=" onSubmit()"></app-bg-orange>
+        </div>
+    </form>
+    </div>

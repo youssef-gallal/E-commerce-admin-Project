@@ -1,0 +1,22 @@
+<div class="mt-3 mb-3">
+    <h1>{{ title  }}
+      <ng-container *ngIf="count">
+        ({{ count }})
+      </ng-container>
+    </h1>
+    <p class="subtitle" *ngIf="subtitle">
+      {{ subtitle }}
+    </p>
+  
+    <div class="breadcrumb-wrapper my-2">
+      <ng-container *ngFor="let breadcrumbLink of breadcrumbsLinks; let last = last">
+        <p class="link" *ngIf="breadcrumbLink.link; else noLink"
+           routerLink="{{ breadcrumbLink.link }}">{{ breadcrumbLink.name  }}</p>
+        <ng-template #noLink>
+          <p>{{ breadcrumbLink.name }}</p>
+        </ng-template>
+        <mat-icon *ngIf="!last">chevron_right</mat-icon>
+      </ng-container>
+    </div>
+  </div>
+  

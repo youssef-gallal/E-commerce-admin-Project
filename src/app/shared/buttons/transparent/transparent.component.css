@@ -1,0 +1,5 @@
+.bg-transparent{
+    background: transparent;
+    border: 1px solid gray;
+    color: #fff;
+}

@@ -20,8 +20,8 @@ export class LoginComponent implements OnInit {
   }
   createform() {
     this.loginform = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]]
+      email: ['admin@eco.com', [Validators.required, Validators.email]],
+      password: ['P@ssw0rd', [Validators.required]]
     })
   }
 
@@ -31,9 +31,9 @@ export class LoginComponent implements OnInit {
       password: this.loginform.value.password
     }
     this.services.getuser(logindata).subscribe((res: any) => {
-      this.login = (res)
+      console.log(res)
+      localStorage.setItem('token',res.token)
     })
-    console.log(logindata)
 
 
   }

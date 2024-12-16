@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DialogComponent } from './dialog.component';
+import { TransparentComponent } from './transparent.component';
 
-describe('DialogComponent', () => {
-  let component: DialogComponent;
-  let fixture: ComponentFixture<DialogComponent>;
+describe('TransparentComponent', () => {
+  let component: TransparentComponent;
+  let fixture: ComponentFixture<TransparentComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DialogComponent]
+      imports: [TransparentComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(DialogComponent);
+    fixture = TestBed.createComponent(TransparentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
