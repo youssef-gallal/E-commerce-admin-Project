@@ -13,19 +13,10 @@ mat-sidenav {
 
 }
 
-.sidebar-header {
-    display: flex;
-    padding: 10px 15px;
-    justify-content: space-between;
-    min-height: 50px;
-    z-index: 5;
-    position: sticky;
-}
+
 
 .sidebar-header .header-logo {
-    display: flex;
-    bottom: -8px;
-    position: relative;
+    text-align: center;
 }
 
 .sidebar-header img {

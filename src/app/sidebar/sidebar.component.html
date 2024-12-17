@@ -2,13 +2,12 @@
     <mat-sidenav  #sidenav mode="side" opened [class.minimized]="isMinimized" class="sidenav p-0">
         <div class="sidebar-header">
             <div class="header-logo">
-                <img src="../assets/images/logo-sm.png" alt="">
-                <h2>Larkon</h2>
+                <h2 class="mt-4 mb-4 mx-0">Admin Dashboard</h2>
             </div>
-            @if (!isMinimized) {
+            <!-- @if (!isMinimized) {
             <button mat-icon-button (click)=" toggleMinimize()">
                 <mat-icon>menu</mat-icon>
-            </button>}
+            </button>} -->
         </div>
         <mat-nav-list>
             <span class="top-tilte">general</span>
@@ -66,9 +65,9 @@
                 </li>
             </ul>
         </mat-nav-list>
-        <button mat-icon-button (click)="toggleMinimize()">
+        <!-- <button mat-icon-button (click)="toggleMinimize()">
             <mat-icon>menu</mat-icon>
-        </button>
+        </button> -->
 
     </mat-sidenav>
 </mat-sidenav-container>

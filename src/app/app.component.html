@@ -1,9 +1,9 @@
 <!-- <app-login></app-login> -->
 <div class="row">
-    <div class="col-md-2 p-0">
+    <div class="col-md-2 p-0" *ngIf="!hideNavBar()">
         <app-sidebar></app-sidebar>
     </div>
-    <div class="col-md-10 ">
+    <div  [ngClass]="!hideNavBar()?'col-md-10':'col-md-12'">
         <section class="container">
             <router-outlet></router-outlet>
         </section>
