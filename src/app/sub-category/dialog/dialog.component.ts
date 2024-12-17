@@ -41,9 +41,6 @@ export class DialogComponent implements OnInit {
       selected: this.selected
     }
     console.log(dialogdata)
-
-
-
   }
 
 
