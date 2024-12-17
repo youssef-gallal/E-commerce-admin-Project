@@ -9,7 +9,6 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [SidebarComponent,
     RouterModule,
-    LoginComponent,
     CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
