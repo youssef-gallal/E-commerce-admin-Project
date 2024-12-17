@@ -6,49 +6,43 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { BredCrumpComponent } from '../shared/bred-crump/bred-crump.component';
 import { BgOrangeComponent } from '../shared/buttons/bg-orange/bg-orange.component';
 import { DialogComponent } from './dialog/dialog.component';
+import { ProductService } from './services/product.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
-import { SubCategoryService } from './services/sub-category.service';
 
 @Component({
-  selector: 'app-sub-category',
+  selector: 'app-products',
   standalone: true,
   imports: [ReactiveFormsModule,
     MatTableModule, MatPaginator,
     MatPaginatorModule,
     BredCrumpComponent,
     BgOrangeComponent, MatButtonModule, MatMenuModule, MatIconModule],
-  templateUrl: './sub-category.component.html',
-  styleUrl: './sub-category.component.css'
+  templateUrl: './products.component.html',
+  styleUrl: './products.component.css'
 })
-export class SubCategoryComponent {
-  datasource: any = []
+export class ProductsComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name AR', 'name Eng', 'Actions'];
+  datasource: any = [];
   breadcrumbsLinks = [
     { link: '/home', name: 'Home' },
-    { link: null, name: 'Sub Categories List' },
+    { link: null, name: '  Products List' },
   ];
-  constructor(private dialog: MatDialog, private service: SubCategoryService) { }
-  ngOnInit(): void { this.getsubcategory() }
 
-  getsubcategory() {
+  constructor(private dialog: MatDialog, private service: ProductService) { }
+  ngOnInit(): void {
+    this.getproductscategory()
+  }
+
+
+  getproductscategory() {
     this.service.getCategory().subscribe((res: any) => {
       this.datasource = res
       console.log(this.datasource)
     })
   }
 
-
-
-
-  // onEdit(element: any) {
-  //   console.log('Edit action triggered for:', element);
-  // }
-
-  // onDelete(element: any) {
-  //   console.log('Delete action triggered for:', element);
-  // }
   createUpdateCategory(data?: any) {
     const dialogRef = this.dialog.open(DialogComponent, {
       data: data,
@@ -60,6 +54,4 @@ export class SubCategoryComponent {
       }
     });
   }
-
-
 }

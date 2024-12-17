@@ -6,45 +6,40 @@ import { MatInputModule } from '@angular/material/input';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 
+import { BgOrangeComponent } from "../../shared/buttons/bg-orange/bg-orange.component";
+import { SubCategoryService } from '../services/sub-category.service';
+
+
+
 
 @Component({
   selector: 'app-dialog',
   standalone: true,
-  imports: [MatDialogModule, MatButtonModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule, MatSelectModule],
+  imports: [MatDialogModule, MatButtonModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule, MatSelectModule, BgOrangeComponent],
   templateUrl: './dialog.component.html',
   styleUrl: './dialog.component.css'
 })
 export class DialogComponent implements OnInit {
-  dialogform!: FormGroup
-  selected: string = '';
-  constructor(private fb: FormBuilder) { }
+  CategoryForm!: FormGroup
+
+  constructor(private fb: FormBuilder, private subCatService: SubCategoryService) { }
   ngOnInit(): void {
-    this.createform()
+    this.initForm()
   }
 
 
-  createform() {
-    this.dialogform = this.fb.group({
-      englishname: ['', Validators.required],
-      arabicname: ['', Validators.required],
-      selected: ['']
+  initForm() {
+    this.CategoryForm = this.fb.group({
+      name: ['', Validators.required],
+      nameEng: ['', Validators.required]
     })
   }
-
-  detectchange(event: any) {
-    this.selected = event.target.value;
-  }
   onSubmit() {
-    const dialogdata = {
-      Englishname: this.dialogform.value.englishname,
-      Arabicname: this.dialogform.value.arabicname,
-      selected: this.selected
-    }
-    console.log(dialogdata)
+    let form = this.CategoryForm.value
+    this.subCatService.addCategory(form).subscribe((res: any) => {
+      console.log(res);
 
-
-
+    })
+    // console.log(dialogdata)
   }
-
-
 }
