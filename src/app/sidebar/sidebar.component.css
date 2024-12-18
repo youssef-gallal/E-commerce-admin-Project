@@ -13,6 +13,7 @@ mat-sidenav {
 
 .sidebar-header .header-logo {
     text-align: center;
+    align-items: center;
 }
 
 mat-nav-list {
