@@ -1,17 +1,11 @@
 <section>
     <div class="d-flex justify-content-between align-items-center">
-        <app-bred-crump [title]="'Categories List'" [breadcrumbsLinks]="breadcrumbsLinks">
+        <app-bred-crump [title]="'Products List'" [breadcrumbsLinks]="breadcrumbsLinks">
         </app-bred-crump>
-        <app-bg-orange (click)="createUpdateCategory()" [title]="'Create category'"></app-bg-orange>
+        <app-bg-orange (click)="createUpdateCategory()" [title]="'Create product'"></app-bg-orange>
     </div>
 
     <table mat-table [dataSource]="datasource" class="mat-elevation-z8">
-
-
-        <!--- Note that these columns can be defined in any order.
-              The actual rendered columns are set as a property on the row definition" -->
-
-
         <ng-container matColumnDef="id">
             <th mat-header-cell *matHeaderCellDef> ID </th>
             <td mat-cell *matCellDef="let element"> {{element.id}} </td>
