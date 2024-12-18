@@ -1,100 +1,42 @@
 <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #sidenav mode="side" opened [class.minimized]="isMinimized" class="sidenav">
+    <mat-sidenav #sidenav mode="side" opened [class.minimized]="isMinimized" class="sidenav p-0">
         <div class="sidebar-header">
             <div class="header-logo">
-                <img src="../assets/images/logo-sm.png" alt="">
-                @if (!isMinimized) {
-                <h2>Larkon</h2>}
+                <h2 class="mt-4 mb-4 mx-0">Admin Dashboard</h2>
             </div>
-            @if (!isMinimized) {
+            <!-- @if (!isMinimized) {
             <button mat-icon-button (click)=" toggleMinimize()">
                 <mat-icon>menu</mat-icon>
-            </button>}
+            </button>} -->
         </div>
         <mat-nav-list>
-            @if (!isMinimized){
             <span class="top-tilte">general</span>
-            }
-            <ul>
-                <li>
-                    <a routerLink="" routerLinkActive="active">
-                        <div class="menu-item">
-                            <mat-icon>dashboard</mat-icon>
-                            @if (!isMinimized) {
-                            <span class="text">Dashboard</span>}
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a routerLink="" routerLinkActive="active">
-                        <div class="menu-item">
-                            <mat-icon>person</mat-icon>
-                            @if (!isMinimized) {
-                            <span class="text">profile</span>}
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a routerLink="" routerLinkActive="active">
-                        <div class="menu-item">
-                            <mat-icon>settings</mat-icon>@if (!isMinimized) {
-                            <span class="text">Category</span>}
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a routerLink="" routerLinkActive="active">
-                        <div class="menu-item">
-                            <mat-icon>info</mat-icon> @if (!isMinimized) {
-                            <span class="text">Inventory</span>}
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a routerLink="" routerLinkActive="active">
-                        <div class="menu-item">
-                            <mat-icon>info</mat-icon> @if (!isMinimized) {
-                            <span class="text">Orders</span>}
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a routerLink="" routerLinkActive="active">
-                        <div class="menu-item">
-                            <mat-icon>info</mat-icon> @if (!isMinimized) {
-                            <span class="text">Purchases</span>}
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a routerLink="" routerLinkActive="active">
-                        <div class="menu-item">
-                            <mat-icon>info</mat-icon> @if (!isMinimized) {
-                            <span class="text">Attributes</span>}
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a routerLink="" routerLinkActive="active">
-                        <div class="menu-item">
-                            <mat-icon>info</mat-icon> @if (!isMinimized) {
-                            <span class="text">Invoices</span>}
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a routerLink="" routerLinkActive="active">
-                        <div class="menu-item">
-                            <mat-icon>settings</mat-icon> @if (!isMinimized) {
-                            <span class="text">settings</span>}
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </mat-nav-list>
-        <button mat-icon-button (click)="toggleMinimize()">
-            <mat-icon>menu</mat-icon>
-        </button>
+            <li class="nav-item">
+                <a mat-list-item routerLink="" routerLinkActive="active" class="nav-item">
+                    <mat-icon matListItemIcon>dashboard</mat-icon>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+            </li>
+            <li> <a mat-list-item routerLink="/main-category" routerLinkActive="active" class="nav-item">
+                    <mat-icon matListItemIcon>category</mat-icon>
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li> <a mat-list-item routerLink="/sub-category" routerLinkActive="active" class="nav-item">
+                    <mat-icon matListItemIcon>view_list</mat-icon>
+                    <span>Sub Category</span>
+                </a>
+            </li>
+            <li><a mat-list-item routerLink="/products" routerLinkActive="active" class="nav-item">
+                    <mat-icon matListItemIcon>storefront</mat-icon>
+                    <span>Products</span>
+                </a>
+            </li>
 
+        </mat-nav-list>
+
+        <!-- <button mat-icon-button (click)="toggleMinimize()">
+            <mat-icon>menu</mat-icon>
+        </button> -->
     </mat-sidenav>
 </mat-sidenav-container>

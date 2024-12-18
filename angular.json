@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "E-commerce": {
+    "angualar-learn-project": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/e-commerce",
+            "outputPath": "dist/angualar-learn-project",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -61,10 +61,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "E-commerce:build:production"
+              "buildTarget": "angualar-learn-project:build:production"
             },
             "development": {
-              "buildTarget": "E-commerce:build:development"
+              "buildTarget": "angualar-learn-project:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -72,7 +72,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "E-commerce:build"
+            "buildTarget": "angualar-learn-project:build"
           }
         },
         "test": {
@@ -98,6 +98,6 @@
     }
   },
   "cli": {
-    "analytics": "33d4845d-9672-48f7-b8a4-f044b2a7b616"
+    "analytics": "50262b38-ac0a-4314-9c5c-8190cc087cef"
   }
 }

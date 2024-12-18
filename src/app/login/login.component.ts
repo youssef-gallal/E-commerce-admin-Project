@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { LoginService } from './services/login-service.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -13,15 +14,17 @@ export class LoginComponent implements OnInit {
 
   loginform!: FormGroup
   login: any[] = []
-  constructor(private fb: FormBuilder, private services: LoginService) { }
+  constructor(private fb: FormBuilder,
+    private router: Router,
+    private services: LoginService) { }
 
   ngOnInit(): void {
     this.createform()
   }
   createform() {
     this.loginform = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]]
+      email: ['admin@eco.com', [Validators.required, Validators.email]],
+      password: ['P@ssw0rd', [Validators.required]]
     })
   }
 
@@ -31,9 +34,11 @@ export class LoginComponent implements OnInit {
       password: this.loginform.value.password
     }
     this.services.getuser(logindata).subscribe((res: any) => {
-      this.login = (res)
+      console.log(res)
+      localStorage.setItem('token', res.token)
+      this.router.navigate(['/main_category'], {
+      }).then()
     })
-    console.log(logindata)
 
 
   }
