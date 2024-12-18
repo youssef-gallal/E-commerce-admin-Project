@@ -7,13 +7,13 @@
             <mat-form-field class="d-inline">
                 <input matInput class="" placeholder="name in english" formControlName="nameEng">
             </mat-form-field>
-            <mat-form-field class="d-inline">
+            <mat-form-field class=" d-inline">
                 <input matInput class="" placeholder="name in arabic" formControlName="name">
             </mat-form-field>
         </div>
         <div mat-dialog-actions style="float: right;">
             <app-transparent class="me-2" mat-dialog-close [title]="'Cancel'"></app-transparent>
-            <app-bg-orange [title]="'Submit'" (click)=" onSubmit()"></app-bg-orange>
+            <app-bg-orange [title]="'Submit'" mat-dialog-close (click)="onSubmit()"></app-bg-orange>
         </div>
     </form>
 </div>

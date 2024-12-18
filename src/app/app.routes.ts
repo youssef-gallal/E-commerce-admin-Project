@@ -17,6 +17,16 @@ export const routes: Routes = [
         canActivate: [authGuardGuard],
     },
     {
+        path: 'sub_category',
+        component: SubCategoryComponent,
+        canActivate: [authGuardGuard],
+    },
+    {
+        path: 'products',
+        component: ProductsComponent,
+        canActivate: [authGuardGuard],
+    },
+    {
         path: 'login',
         component: LoginComponent,
         canActivate: [authorizedGuard],

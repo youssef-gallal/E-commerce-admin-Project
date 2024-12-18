@@ -1,5 +1,5 @@
 <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav  #sidenav mode="side" opened [class.minimized]="isMinimized" class="sidenav p-0">
+    <mat-sidenav #sidenav mode="side" opened [class.minimized]="isMinimized" class="sidenav p-0">
         <div class="sidebar-header">
             <div class="header-logo">
                 <h2 class="mt-4 mb-4 mx-0">Admin Dashboard</h2>
@@ -11,63 +11,32 @@
         </div>
         <mat-nav-list>
             <span class="top-tilte">general</span>
-            <ul>
+            <li class="nav-item">
+                <a mat-list-item routerLink="" routerLinkActive="active" class="nav-item">
+                    <mat-icon matListItemIcon>dashboard</mat-icon>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+            </li>
+            <li> <a mat-list-item routerLink="/main_category" routerLinkActive="active" class="nav-item">
+                    <mat-icon matListItemIcon>category</mat-icon>
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li> <a mat-list-item routerLink="/sub_category" routerLinkActive="active" class="nav-item">
+                    <mat-icon matListItemIcon>view_list</mat-icon>
+                    <span>Sub Category</span>
+                </a>
+            </li>
+            <li><a mat-list-item routerLink="/products" routerLinkActive="active" class="nav-item">
+                    <mat-icon matListItemIcon>storefront</mat-icon>
+                    <span>Products</span>
+                </a>
+            </li>
 
-                <li>
-                    <a routerLink="" routerLinkActive="active">
-                        <mat-icon>dashboard</mat-icon>
-                        <span class="text">Dashboard</span>
-                    </a>
-
-                </li>
-                <li>
-                    <a routerLink="" routerLinkActive="active">
-                        <mat-icon>person</mat-icon>
-                        <span class="text">profile</span></a>
-                </li>
-                <li>
-                    <a routerLink="" routerLinkActive="active">
-                        <mat-icon>settings</mat-icon>
-                        <span class="text">Category</span></a>
-                </li>
-                <li>
-                    <a routerLink="" routerLinkActive="active">
-                        <mat-icon>info</mat-icon>
-                        <span class="text">Inventory</span></a>
-                </li>
-                <li>
-                    <a routerLink="" routerLinkActive="active">
-                        <mat-icon>info</mat-icon>
-                        <span class="text">Orders</span></a>
-                </li>
-                <li>
-                    <a routerLink="" routerLinkActive="active">
-                        <mat-icon>info</mat-icon>
-                        <span class="text">Purchases</span></a>
-                </li>
-                <li>
-                    <a routerLink="" routerLinkActive="active">
-                        <mat-icon>info</mat-icon>
-                        <span class="text">Attributes</span>
-                    </a>
-                </li>
-                <li>
-                    <a routerLink="" routerLinkActive="active">
-                        <mat-icon>info</mat-icon>
-                        <span class="text">Invoices</span>
-                    </a>
-                </li>
-                <li>
-                    <a routerLink="" routerLinkActive="active">
-                        <mat-icon>settings</mat-icon>
-                        <span class="text">settings</span>
-                    </a>
-                </li>
-            </ul>
         </mat-nav-list>
+
         <!-- <button mat-icon-button (click)="toggleMinimize()">
             <mat-icon>menu</mat-icon>
         </button> -->
-
     </mat-sidenav>
 </mat-sidenav-container>

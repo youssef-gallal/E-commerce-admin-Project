@@ -5,11 +5,12 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { BredCrumpComponent } from '../shared/bred-crump/bred-crump.component';
 import { BgOrangeComponent } from '../shared/buttons/bg-orange/bg-orange.component';
-import { DialogComponent } from './dialog/dialog.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { SubCategoryService } from './services/sub-category.service';
+import { CreateUpdateSubcategoryComponent } from './components/create-update-subcategory/create-update-subcategory.component';
+
 
 @Component({
   selector: 'app-sub-category',
@@ -50,7 +51,7 @@ export class SubCategoryComponent {
   //   console.log('Delete action triggered for:', element);
   // }
   createUpdateCategory(data?: any) {
-    const dialogRef = this.dialog.open(DialogComponent, {
+    const dialogRef = this.dialog.open(CreateUpdateSubcategoryComponent, {
       data: data,
       width: '50vw'
     });

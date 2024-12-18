@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialogModule, } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -18,13 +18,18 @@ import { MaincategoryService } from '../../services/main-category.service';
   templateUrl: './create-update-category.component.html',
   styleUrl: './create-update-category.component.css'
 })
-export class CreateUpdateCategoryComponent {
+export class CreateUpdateCategoryComponent implements OnInit {
   CategoryForm!: FormGroup
 
+
   constructor(private fb: FormBuilder, private mainCatService: MaincategoryService) { }
+
   ngOnInit(): void {
     this.initForm()
   }
+
+
+
 
 
   initForm() {
@@ -36,10 +41,10 @@ export class CreateUpdateCategoryComponent {
   onSubmit() {
     let form = this.CategoryForm.value
     this.mainCatService.addCategory(form).subscribe(res => {
-      console.log(res);
-
+      console.log(form)
     })
-    // console.log(dialogdata)
+
+
 
   }
 }

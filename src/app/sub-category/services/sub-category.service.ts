@@ -8,8 +8,8 @@ import { environment } from '../../../env/environment';
 export class SubCategoryService {
 
   constructor(private http: HttpClient) { }
-  addCategory(data: any) {
-    return this.http.post(`${environment.baseUrl}/productCategories`, data)
+  addCategory(form: any) {
+    return this.http.post(`${environment.baseUrl}/productCategories`, form)
   }
   getCategory() {
     return this.http.get(`${environment.baseUrl}/productCategories`)
