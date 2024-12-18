@@ -10,6 +10,7 @@ import { MaincategoryService } from './services/main-category.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import { DeleteCategoryComponent } from './components/delete-category/delete-category.component';
 @Component({
   selector: 'app-main-category',
   standalone: true,
@@ -30,27 +31,24 @@ export class MainCategoryComponent {
     { link: null, name: 'Categories List' },
   ];
   constructor(private dialog: MatDialog, private service: MaincategoryService) { }
-  ngOnInit(): void { this.getmaincategory() }
 
-  getmaincategory() {
+
+  ngOnInit(): void {
+    this.getMainCategory()
+  }
+
+
+
+  // ------------------------category list------------------------
+  getMainCategory() {
     this.service.getCategory().subscribe((res: any) => {
       this.datasource = res
       console.log(this.datasource)
     })
   }
+  // ------------------------------------------------
 
-  // onEdit(element: any) {
-  //   console.log('Edit action triggered for:', element);
-  // }
-
-  // onDelete(element: any) {
-  //   console.log('Delete action triggered for:', element);
-  // }
-
-
-
-
-
+  // ------------------------post and edit category------------------------
   createUpdateCategory(data?: any) {
     const dialogRef = this.dialog.open(CreateUpdateCategoryComponent, {
       data: data,
@@ -58,9 +56,29 @@ export class MainCategoryComponent {
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {
-      if (result === 'action') {
+      if (result == 'action') {
+        this.getMainCategory()
       }
     });
   }
+  // ------------------------------------------------
+
+
+  // ------------------------delete category------------------------
+  deleteCategory(data: any) {
+    const dialogRef = this.dialog.open(DeleteCategoryComponent, {
+      data: data,
+      width: '50vw'
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      if (result == 'action') {
+        this.getMainCategory()
+      }
+    });
+  }
+
+  // ------------------------------------------------
+
 
 }

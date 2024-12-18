@@ -15,4 +15,16 @@ export class MaincategoryService {
   getCategory() {
     return this.http.get(`${environment.baseUrl}/MainCategories`)
   }
+
+  getSingleCategory(id: any) {
+    return this.http.get(`${environment.baseUrl}/MainCategories/${id}`)
+  }
+
+  deleteCategory(id: any) {
+    return this.http.delete(`${environment.baseUrl}/MainCategories/${id}`)
+  }
+
+  editCategory(id: any, data: any) {
+    return this.http.put(`${environment.baseUrl}/MainCategories/${id}`, data)
+  }
 }

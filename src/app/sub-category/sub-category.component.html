@@ -5,7 +5,7 @@
         <app-bg-orange (click)="createUpdateCategory()" [title]="'Create Sub category'"></app-bg-orange>
     </div>
 
-    <table mat-table [dataSource]="datasource" class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
 
         <!--- Note that these columns can be defined in any order.
@@ -35,8 +35,8 @@
                     <mat-icon>more_vert</mat-icon>
                 </button>
                 <mat-menu #menu="matMenu">
-                    <button mat-menu-item>Delete</button>
-                    <button mat-menu-item>Edit</button>
+                    <button mat-menu-item (click)="createUpdateCategory(element)">Edit</button>
+                    <button mat-menu-item (click)="deleteSupCategory(element)">Delete</button>
                 </mat-menu>
             </td>
         </ng-container>

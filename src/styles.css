@@ -74,7 +74,7 @@ mat-paginator{
   fill: gray !important;
 }
 .mat-mdc-select-value-text{
-  color: #fff;
+  color: #000;
 }
 .mat-mdc-select-arrow svg{
   fill: #fff;

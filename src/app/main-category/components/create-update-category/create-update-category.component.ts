@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialogModule, } from '@angular/material/dialog';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef, } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -7,6 +7,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, } from '@angul
 import { BgOrangeComponent } from '../../../shared/buttons/bg-orange/bg-orange.component';
 import { TransparentComponent } from '../../../shared/buttons/transparent/transparent.component';
 import { MaincategoryService } from '../../services/main-category.service';
+import { MainCategoryComponent } from '../../main-category.component';
 @Component({
   selector: 'app-create-update-category',
   standalone: true,
@@ -22,13 +23,19 @@ export class CreateUpdateCategoryComponent implements OnInit {
   CategoryForm!: FormGroup
 
 
-  constructor(private fb: FormBuilder, private mainCatService: MaincategoryService) { }
+  constructor(private fb: FormBuilder,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    public dialogRef: MatDialogRef<MainCategoryComponent>,
+     private mainCatService: MaincategoryService) { }
 
   ngOnInit(): void {
+    console.log(this.data)
     this.initForm()
+
+    if(this.data){
+      this.patchValues()
+    }
   }
-
-
 
 
 
@@ -38,13 +45,25 @@ export class CreateUpdateCategoryComponent implements OnInit {
       nameEng: ['', Validators.required]
     })
   }
+
+  patchValues(): void {
+    this.CategoryForm.patchValue({
+      name: this.data.name,
+      nameEng: this.data.nameEng
+    })
+  }
+
   onSubmit() {
     let form = this.CategoryForm.value
-    this.mainCatService.addCategory(form).subscribe(res => {
-      console.log(form)
-    })
-
-
-
+    if(this.data){
+      this.mainCatService.editCategory(this.data.id,form).subscribe(res => {
+        this.dialogRef.close('action')
+      })
+    }else {
+      this.mainCatService.addCategory(form).subscribe(res => {
+        this.dialogRef.close('action')
+      }) 
+    }
+   
   }
 }

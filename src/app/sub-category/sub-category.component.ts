@@ -10,6 +10,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { SubCategoryService } from './services/sub-category.service';
 import { CreateUpdateSubcategoryComponent } from './components/create-update-subcategory/create-update-subcategory.component';
+import { DeleteSupCategoryComponent } from './components/delete-sup-category/delete-sup-category.component';
 
 
 @Component({
@@ -24,32 +25,24 @@ import { CreateUpdateSubcategoryComponent } from './components/create-update-sub
   styleUrl: './sub-category.component.css'
 })
 export class SubCategoryComponent {
-  datasource: any = []
+  dataSource: any = []
   displayedColumns: string[] = ['id', 'name AR', 'name Eng', 'Actions'];
   breadcrumbsLinks = [
     { link: '/home', name: 'Home' },
     { link: null, name: 'Sub Categories List' },
   ];
   constructor(private dialog: MatDialog, private service: SubCategoryService) { }
-  ngOnInit(): void { this.getsubcategory() }
+  ngOnInit(): void {
+     this.getSubCategory() 
+  }
 
-  getsubcategory() {
-    this.service.getCategory().subscribe((res: any) => {
-      this.datasource = res
-      console.log(this.datasource)
+  getSubCategory() {
+    this.service.getSupCategory().subscribe((res: any) => {
+      this.dataSource = res
+      console.log(this.dataSource)
     })
   }
 
-
-
-
-  // onEdit(element: any) {
-  //   console.log('Edit action triggered for:', element);
-  // }
-
-  // onDelete(element: any) {
-  //   console.log('Delete action triggered for:', element);
-  // }
   createUpdateCategory(data?: any) {
     const dialogRef = this.dialog.open(CreateUpdateSubcategoryComponent, {
       data: data,
@@ -58,6 +51,21 @@ export class SubCategoryComponent {
 
     dialogRef.afterClosed().subscribe((result: any) => {
       if (result === 'action') {
+        this.getSubCategory()
+      }
+    });
+  }
+
+
+  deleteSupCategory(data:any){
+    const dialogRef = this.dialog.open(DeleteSupCategoryComponent, {
+      data: data,
+      width: '50vw'
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      if (result === 'action') {
+        this.getSubCategory()
       }
     });
   }
