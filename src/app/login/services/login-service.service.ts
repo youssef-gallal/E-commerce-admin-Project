@@ -8,8 +8,8 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
-  getToken(){
-   return localStorage.getItem('token')
+  getToken() {
+    return localStorage.getItem('token')
   }
 
   getuser(logindata: any) {

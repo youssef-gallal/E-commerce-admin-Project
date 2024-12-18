@@ -4,11 +4,17 @@ import { LoginComponent } from './login/login.component';
 import { authGuardGuard, authorizedGuard } from './core/guards/auth-guard.guard';
 import { ProductsComponent } from './products/products.component';
 import { SubCategoryComponent } from './sub-category/sub-category.component';
+import { NavComponent } from './nav/nav.component';
 
 export const routes: Routes = [
     {
         path: '',
         component: MainCategoryComponent,
+        canActivate: [authGuardGuard],
+    },
+    {
+        path: '',
+        component: NavComponent,
         canActivate: [authGuardGuard],
     },
     {
