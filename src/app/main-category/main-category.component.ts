@@ -43,7 +43,7 @@ export class MainCategoryComponent {
   getMainCategory() {
     this.service.getCategory().subscribe((res: any) => {
       this.datasource = res
-      console.log(this.datasource)
+      // console.log(this.datasource)
     })
   }
   // ------------------------------------------------

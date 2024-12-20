@@ -1,9 +1,9 @@
-import { Component  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { LoginComponent } from "./login/login.component";
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NavComponent } from "./nav/nav.component";
+import { LoginService } from './login/services/login-service.service';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +18,7 @@ import { NavComponent } from "./nav/nav.component";
 
 export class AppComponent {
 
-  constructor( public router: Router){}
+  constructor(public router: Router, private services: LoginService) { }
 
   hideNavBar() {
     const url = this.router.url;

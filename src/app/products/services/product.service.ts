@@ -9,11 +9,10 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  addCategory(data: any) {
-    return this.http.post(`${environment.baseUrl}/products`, data)
-  }
+  // addCategory(data: any) {
+  //   return this.http.post(`${environment.baseUrl}/products`, data)
+  // }
   getCategory() {
     return this.http.get(`${environment.baseUrl}/products`)
-
   }
 }

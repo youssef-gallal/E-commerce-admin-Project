@@ -33,7 +33,7 @@ export class SubCategoryComponent {
   ];
   constructor(private dialog: MatDialog, private service: SubCategoryService) { }
   ngOnInit(): void {
-     this.getSubCategory() 
+    this.getSubCategory()
   }
 
   getSubCategory() {
@@ -57,7 +57,7 @@ export class SubCategoryComponent {
   }
 
 
-  deleteSupCategory(data:any){
+  deleteSupCategory(data: any) {
     const dialogRef = this.dialog.open(DeleteSupCategoryComponent, {
       data: data,
       width: '50vw'

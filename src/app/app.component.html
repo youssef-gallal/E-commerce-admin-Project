@@ -5,8 +5,10 @@
     </div>
 
     <div [ngClass]="!hideNavBar()?'col-md-10':'col-md-12'">
+
+
         <section class="container">
-            <app-nav></app-nav>
+            <app-nav *ngIf="!hideNavBar()"></app-nav>
             <router-outlet></router-outlet>
         </section>
     </div>

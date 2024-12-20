@@ -5,6 +5,7 @@ import { authGuardGuard, authorizedGuard } from './core/guards/auth-guard.guard'
 import { ProductsComponent } from './products/products.component';
 import { SubCategoryComponent } from './sub-category/sub-category.component';
 import { NavComponent } from './nav/nav.component';
+import { CreateUpdateProductcategoryComponent } from './products/components/create-update-productcategory/create-update-productcategory.component';
 
 export const routes: Routes = [
     {
@@ -30,6 +31,11 @@ export const routes: Routes = [
     {
         path: 'products',
         component: ProductsComponent,
+        canActivate: [authGuardGuard],
+    },
+    {
+        path: 'create_products',
+        component: CreateUpdateProductcategoryComponent,
         canActivate: [authGuardGuard],
     },
     {

@@ -4,10 +4,11 @@
 
 
 
-    <img src="../assets/images/logo-sm.png" alt="User" class="profile-photo">
+
     <button class="mx-3 text-white" mat-button [matMenuTriggerFor]=" profileMenu">
-        <span>{{ username }}</span>
+        <span>{{usertype}}</span>
     </button>
+    <img src="../assets/images/avatar-1.jpg" alt="User" class="profile-photo">
     <mat-menu #profileMenu="matMenu">
         <button mat-menu-item>
             <mat-icon>logout</mat-icon>

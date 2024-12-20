@@ -9,7 +9,8 @@ import { ProductService } from './services/product.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
-import { CreateUpdateProductcategoryComponent } from './components/create-update-productcategory/create-update-productcategory.component';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-products',
@@ -30,7 +31,7 @@ export class ProductsComponent implements OnInit {
     { link: null, name: '  Products List' },
   ];
 
-  constructor(private dialog: MatDialog, private service: ProductService) { }
+  constructor(private dialog: MatDialog, private service: ProductService, private router: Router) { }
   ngOnInit(): void {
     this.getproductscategory()
   }
@@ -43,15 +44,19 @@ export class ProductsComponent implements OnInit {
     })
   }
 
-  createUpdateCategory(data?: any) {
-    const dialogRef = this.dialog.open(CreateUpdateProductcategoryComponent, {
-      data: data,
-      width: '50vw'
-    });
-
-    dialogRef.afterClosed().subscribe((result: any) => {
-      if (result === 'action') {
-      }
-    });
+  createUpdateCategory() {
+    this.router.navigate(['/create_products'])
   }
+
+  // createUpdateCategory(data?: any) {
+  //   const dialogRef = this.dialog.open(CreateUpdateProductcategoryComponent, {
+  //     data: data,
+  //     width: '50vw'
+  //   });
+
+  //   dialogRef.afterClosed().subscribe((result: any) => {
+  //     if (result === 'action') {
+  //     }
+  //   });
+  // }
 }

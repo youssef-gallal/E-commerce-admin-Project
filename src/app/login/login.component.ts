@@ -15,8 +15,8 @@ export class LoginComponent implements OnInit {
   loginform!: FormGroup
   login: any[] = []
   constructor(private fb: FormBuilder,
-    private router : Router,
-     private services: LoginService) { }
+    private router: Router,
+    private services: LoginService) { }
 
   ngOnInit(): void {
     this.createform()
@@ -35,7 +35,10 @@ export class LoginComponent implements OnInit {
     }
     this.services.getuser(logindata).subscribe((res: any) => {
       console.log(res)
-      localStorage.setItem('token',res.token)
+      localStorage.setItem('token', res.token)
+      // localStorage.setItem('usertype', res.userType)
+      console.log(res.userType)
+      this.services.setUserType(res.userType);
       this.router.navigate(['/main_category'], {
       }).then()
     })
