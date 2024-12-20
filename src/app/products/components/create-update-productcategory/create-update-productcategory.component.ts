@@ -40,6 +40,7 @@ export class CreateUpdateProductcategoryComponent implements OnInit {
       maxCharmCount: [0, Validators.min(0)],
       sizes: [''],
       productCategoryId: ['', Validators.required],
+      productColors : ['', Validators.required]
       // productColors: this.fb.array([]),
 
     });

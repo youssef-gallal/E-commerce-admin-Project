@@ -14,12 +14,18 @@ import { FormsModule, NgModel } from '@angular/forms';
   styleUrl: './nav.component.css'
 })
 export class NavComponent implements OnInit {
-  usertype: any = null
+  userType: any = null
 
   constructor(private services: LoginService) { }
   ngOnInit(): void {
-    this.services.usertype.subscribe((res: any) => { this.usertype = res })
-    console.log(this.usertype)
+    this.services.userType.subscribe((res: any) => { this.userType = res })
+    console.log(this.userType)
+  }
+
+
+  logOut(){
+    localStorage.clear()
+    location.reload()
   }
 
 

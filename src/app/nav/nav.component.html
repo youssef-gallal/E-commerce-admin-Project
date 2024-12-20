@@ -1,18 +1,19 @@
-<mat-toolbar class="bg-dark text-white">
-    <span>Dashboard</span>
-    <span class="spacer"></span>
-
-
-
-
-    <button class="mx-3 text-white" mat-button [matMenuTriggerFor]=" profileMenu">
-        <span>{{usertype}}</span>
-    </button>
-    <img src="../assets/images/avatar-1.jpg" alt="User" class="profile-photo">
-    <mat-menu #profileMenu="matMenu">
-        <button mat-menu-item>
-            <mat-icon>logout</mat-icon>
-            <span>Logout</span>
-        </button>
-    </mat-menu>
-</mat-toolbar>
+<section class="nv-st bg_black_dark">
+    <div class="container">
+        <mat-toolbar class="text-white p-0 bg_black_dark">
+            <h1 class="fs-30">Welcome!</h1>
+            <span class="spacer"></span>
+            <button class="mx-3 text-white" mat-button >
+                <span>{{userType}}</span>
+            </button>
+            <img src="../assets/images/avatar-1.jpg" [matMenuTriggerFor]=" profileMenu"
+            alt="User" class="profile-photo">
+            <mat-menu #profileMenu="matMenu">
+                <button mat-menu-item (click)="logOut()">
+                    <mat-icon>logout</mat-icon>
+                    <span>Logout</span>
+                </button>
+            </mat-menu>
+        </mat-toolbar>
+    </div>
+</section>

@@ -9,9 +9,11 @@ body {
 
 body {
   margin: 0;
-  overflow-x: hidden;
+  overflow: hidden;
 }
-
+h1 {
+  font-size: 20px !important;
+}
 /* global color */
 
 .text_white {
@@ -21,13 +23,19 @@ body {
 /* global background */
 
 .bg_black_dark{
-  background: #22282e;
+  background: #22282e !important;
 }
 
 /* global border radius */
 
 .radius-10{
   border-radius: 10px;
+}
+
+/* global font size */
+
+.fs-30 {
+  font-size: 30px !important;
 }
 
 /* table */

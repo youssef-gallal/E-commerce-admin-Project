@@ -8,14 +8,25 @@ import { BehaviorSubject } from 'rxjs';
 export class LoginService {
   constructor(private http: HttpClient) {
     const savedUserType = localStorage.getItem('usertype');
-    this.usertype = new BehaviorSubject(savedUserType ? JSON.parse(savedUserType) : null);
+    this.userType = new BehaviorSubject(savedUserType ? JSON.parse(savedUserType) : null);
   }
 
-  usertype = new BehaviorSubject(null);
+  userType = new BehaviorSubject(null);
+  private loadingSubject = new BehaviorSubject<boolean>(false);
+  loading$ = this.loadingSubject.asObservable();
 
-  setUserType(usertype: any) {
-    this.usertype.next(usertype);
-    localStorage.setItem('usertype', JSON.stringify(usertype));
+  loadingOn() {
+    this.loadingSubject.next(true);
+
+  }
+
+  loadingOff() {
+    this.loadingSubject.next(false);
+  }
+
+  setUserType(userType: any) {
+    this.userType.next(userType);
+    localStorage.setItem('usertype', JSON.stringify(userType));
   }
 
   getToken() {

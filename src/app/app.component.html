@@ -1,14 +1,18 @@
 <!-- <app-login></app-login> -->
+@if (loading$ | async) {
+    <div class="spinner-overlay">
+        <mat-spinner diameter="50"></mat-spinner>
+    </div>
+}
+
 <div class="row">
     <div class="col-md-2 p-0" *ngIf="!hideNavBar()">
         <app-sidebar></app-sidebar>
     </div>
 
-    <div [ngClass]="!hideNavBar()?'col-md-10':'col-md-12'">
-
-
+    <div class="pt-0 pb-0 pe-3 ps-1" [ngClass]="!hideNavBar()?'col-md-10':'col-md-12'">
+        <app-nav *ngIf="!hideNavBar()"></app-nav>
         <section class="container">
-            <app-nav *ngIf="!hideNavBar()"></app-nav>
             <router-outlet></router-outlet>
         </section>
     </div>
