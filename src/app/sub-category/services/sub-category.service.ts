@@ -10,18 +10,18 @@ export class SubCategoryService {
   constructor(private http: HttpClient) { }
   
   addSupCategory(form: any) {
-    return this.http.post(`${environment.baseUrl}/productCategories`, form)
+    return this.http.post(`${environment.baseUrl}/SubCategory/Create`, form)
   }
   getSupCategory() {
-    return this.http.get(`${environment.baseUrl}/productCategories`)
+    return this.http.get(`${environment.baseUrl}/SubCategory/GetAll`)
   }
 
-  editSupCategory(id:any,data:any){
-    return this.http.put(`${environment.baseUrl}/productCategories/${id}`,data)
+  editSupCategory(data:any){
+    return this.http.put(`${environment.baseUrl}/SubCategory/Update`,data)
   }
 
   deleteSupCategory(id:any){
-    return this.http.delete(`${environment.baseUrl}/productCategories/${id}`)
+    return this.http.delete(`${environment.baseUrl}/SubCategory/Delete?Id=${id}`)
   }
 
 }

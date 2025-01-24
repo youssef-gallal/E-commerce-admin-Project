@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { BredCrumpComponent } from '../shared/bred-crump/bred-crump.component';
@@ -11,6 +11,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { DeleteCategoryComponent } from './components/delete-category/delete-category.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 @Component({
   selector: 'app-main-category',
   standalone: true,
@@ -18,6 +20,8 @@ import { DeleteCategoryComponent } from './components/delete-category/delete-cat
     MatTableModule, MatPaginator,
     MatPaginatorModule,
     BredCrumpComponent,
+    MatFormFieldModule, MatInputModule,
+    FormsModule,
     BgOrangeComponent, MatButtonModule, MatMenuModule, MatIconModule],
   templateUrl: './main-category.component.html',
   styleUrl: './main-category.component.css'
@@ -25,7 +29,8 @@ import { DeleteCategoryComponent } from './components/delete-category/delete-cat
 export class MainCategoryComponent {
 
   datasource: any = []
-  displayedColumns: string[] = ['id', 'name AR', 'name Eng', 'Actions'];
+  keyWord:any = ''
+  displayedColumns: string[] = ['id','name Eng', 'name AR','Actions'];
   breadcrumbsLinks = [
     { link: '/home', name: 'Home' },
     { link: null, name: 'Categories List' },
@@ -40,9 +45,10 @@ export class MainCategoryComponent {
 
 
   // ------------------------category list------------------------
-  getMainCategory() {
-    this.service.getCategory().subscribe((res: any) => {
-      this.datasource = res
+  getMainCategory(keyWord?:any) {
+    this.service.getCategory(keyWord).subscribe((res: any) => {
+      console.log(res)
+      this.datasource = res.result.items
       // console.log(this.datasource)
     })
   }
@@ -81,4 +87,8 @@ export class MainCategoryComponent {
   // ------------------------------------------------
 
 
+  // search 
+  searchInCategory(){
+    this.getMainCategory(this.keyWord)
+  }
 }

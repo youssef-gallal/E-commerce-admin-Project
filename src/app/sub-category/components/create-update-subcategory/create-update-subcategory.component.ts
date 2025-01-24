@@ -39,28 +39,30 @@ export class CreateUpdateSubcategoryComponent implements OnInit {
 
   listOfCategories() {
     this.categoryService.getCategory().subscribe((res: any) => {
-      this.categoriesList = res
+      this.categoriesList = res.result.items
     })
   }
   initForm() {
     this.supCategoryForm = this.fb.group({
       name: ['', Validators.required],
-      nameEng: ['', Validators.required],
-      mainCategoryId: ['', Validators.required]
+      nameEn: ['', Validators.required],
+      categoryId: ['', Validators.required]
     })
   }
   patchValues(): void {
+    console.log(this.data)
     this.supCategoryForm.patchValue({
       name: this.data.name,
-      nameEng: this.data.nameEng,
-      mainCategoryId: this.data.mainCategoryId
+      nameEn: this.data.nameEn,
+      categoryId: this.data.categoryId
     })
   }
 
   onSubmit() {
     let form = this.supCategoryForm.value
     if (this.data) {
-      this.subCatService.editSupCategory(this.data.id, form).subscribe(res => {
+      form.id = this.data.id
+      this.subCatService.editSupCategory(form).subscribe(res => {
         this.dialogRef.close('action')
       })
     } else {

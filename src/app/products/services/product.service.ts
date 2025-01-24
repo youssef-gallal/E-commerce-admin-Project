@@ -12,7 +12,15 @@ export class ProductService {
   // addCategory(data: any) {
   //   return this.http.post(`${environment.baseUrl}/products`, data)
   // }
-  getCategory() {
-    return this.http.get(`${environment.baseUrl}/products`)
+  getAllProducts() {
+    return this.http.get(`${environment.baseUrl}/Product/GetAll`)
+  }
+
+  addProduct(data:any){
+    return this.http.post(`${environment.baseUrl}/Product/Create`,data)
+
+  }
+  getSingleProduct(id:any){
+    return this.http.get(`${environment.baseUrl}/Product/Get?Id=${id}`)
   }
 }

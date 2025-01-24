@@ -12,33 +12,31 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  loginform!: FormGroup
+  loginForm!: FormGroup
   login: any[] = []
   constructor(private fb: FormBuilder,
     private router: Router,
     private services: LoginService) { }
 
   ngOnInit(): void {
-    this.createform()
+    this.createForm()
   }
-  createform() {
-    this.loginform = this.fb.group({
-      email: ['admin@eco.com', [Validators.required, Validators.email]],
-      password: ['P@ssw0rd', [Validators.required]]
+  createForm() {
+    this.loginForm = this.fb.group({
+      userNameOrEmailAddress: ['admin', [Validators.required]],
+      password: ['123qwe', [Validators.required]]
     })
   }
 
   submit() {
-    const logindata = {
-      Email: this.loginform.value.email,
-      password: this.loginform.value.password
+    const loginData = {
+      userNameOrEmailAddress: this.loginForm.value.userNameOrEmailAddress,
+      password: this.loginForm.value.password
     }
-    this.services.getuser(logindata).subscribe((res: any) => {
+    this.services.getUser(loginData).subscribe((res: any) => {
       console.log(res)
-      localStorage.setItem('token', res.token)
-      // localStorage.setItem('usertype', res.userType)
-      console.log(res.userType)
-      this.services.setUserType(res.userType);
+      localStorage.setItem('token', res.result.accessToken)
+      localStorage.setItem('userName',loginData.userNameOrEmailAddress)
       this.router.navigate(['/main_category'], {
       }).then()
     })

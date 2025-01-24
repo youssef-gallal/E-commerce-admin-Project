@@ -42,21 +42,22 @@ export class CreateUpdateCategoryComponent implements OnInit {
   initForm() {
     this.CategoryForm = this.fb.group({
       name: ['', Validators.required],
-      nameEng: ['', Validators.required]
+      nameEn: ['', Validators.required]
     })
   }
 
   patchValues(): void {
     this.CategoryForm.patchValue({
       name: this.data.name,
-      nameEng: this.data.nameEng
+      nameEn: this.data.nameEn
     })
   }
 
   onSubmit() {
     let form = this.CategoryForm.value
     if(this.data){
-      this.mainCatService.editCategory(this.data.id,form).subscribe(res => {
+      form.id = this.data.id
+      this.mainCatService.editCategory(form).subscribe(res => {
         this.dialogRef.close('action')
       })
     }else {

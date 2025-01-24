@@ -26,7 +26,7 @@ import { DeleteSupCategoryComponent } from './components/delete-sup-category/del
 })
 export class SubCategoryComponent {
   dataSource: any = []
-  displayedColumns: string[] = ['id', 'name AR', 'name Eng', 'Actions'];
+  displayedColumns: string[] = ['id','name Eng', 'name AR', 'Actions'];
   breadcrumbsLinks = [
     { link: '/home', name: 'Home' },
     { link: null, name: 'Sub Categories List' },
@@ -38,7 +38,7 @@ export class SubCategoryComponent {
 
   getSubCategory() {
     this.service.getSupCategory().subscribe((res: any) => {
-      this.dataSource = res
+      this.dataSource = res.result.items
       console.log(this.dataSource)
     })
   }

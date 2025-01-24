@@ -4,31 +4,31 @@
         </app-bred-crump>
         <app-bg-orange (click)="createUpdateCategory()" [title]="'Create category'"></app-bg-orange>
     </div>
+    <div class="col-md-3">
+       
+        <mat-form-field class="dense-2 w-100" >
+            <mat-label>Search</mat-label>
+            <input matInput placeholder="Search" [(ngModel)]="keyWord" (keyup.enter)="searchInCategory()"  >
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+    </div>
     <div class="c-table">
         <table mat-table [dataSource]="datasource" class="mat-elevation-z8">
-
-            <!--- Note that these columns can be defined in any order.
-                  The actual rendered columns are set as a property on the row definition" -->
-
 
             <ng-container matColumnDef="id">
                 <th mat-header-cell *matHeaderCellDef> ID </th>
                 <td mat-cell *matCellDef="let element"> {{element.id}} </td>
             </ng-container>
 
+            <ng-container matColumnDef="name Eng">
+                <th mat-header-cell *matHeaderCellDef> Name Eng </th>
+                <td mat-cell *matCellDef="let element"> {{element.nameEn}} </td>
+            </ng-container>
 
             <ng-container matColumnDef="name AR">
                 <th mat-header-cell *matHeaderCellDef> Name AR </th>
                 <td mat-cell *matCellDef="let element"> {{element.name}} </td>
             </ng-container>
-
-
-            <ng-container matColumnDef="name Eng">
-                <th mat-header-cell *matHeaderCellDef> Name Eng </th>
-                <td mat-cell *matCellDef="let element"> {{element.nameEng}} </td>
-            </ng-container>
-
-
 
             <ng-container matColumnDef="Actions">
                 <th mat-header-cell *matHeaderCellDef>Actions</th>

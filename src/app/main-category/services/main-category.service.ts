@@ -10,21 +10,17 @@ export class MaincategoryService {
   constructor(private http: HttpClient) { }
 
   addCategory(data: any) {
-    return this.http.post(`${environment.baseUrl}/MainCategories`, data)
+    return this.http.post(`${environment.baseUrl}/Category/Create`, data)
   }
-  getCategory() {
-    return this.http.get(`${environment.baseUrl}/MainCategories`)
-  }
-
-  getSingleCategory(id: any) {
-    return this.http.get(`${environment.baseUrl}/MainCategories/${id}`)
+  getCategory(param?:any) {
+    return this.http.get(`${environment.baseUrl}/Category/GetAll?${param ? `Keyword=${param}`:''}`)
   }
 
   deleteCategory(id: any) {
-    return this.http.delete(`${environment.baseUrl}/MainCategories/${id}`)
+    return this.http.delete(`${environment.baseUrl}/Category/Delete?Id=${id}`)
   }
 
-  editCategory(id: any, data: any) {
-    return this.http.put(`${environment.baseUrl}/MainCategories/${id}`, data)
+  editCategory(data: any) {
+    return this.http.put(`${environment.baseUrl}/Category/Update`, data)
   }
 }

@@ -39,6 +39,11 @@ export const routes: Routes = [
         canActivate: [authGuardGuard],
     },
     {
+        path: 'edit_products/:id',
+        component: CreateUpdateProductcategoryComponent,
+        canActivate: [authGuardGuard],
+    },
+    {
         path: 'login',
         component: LoginComponent,
         canActivate: [authorizedGuard],

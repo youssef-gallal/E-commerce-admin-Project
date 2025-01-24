@@ -6,27 +6,27 @@
         <div class="row ">
             <div class="col-md-6 ">
                 <mat-form-field class="w-100 ">
-                    <mat-label for="productname">Product name</mat-label>
+                    <mat-label for="productname">Product name ar</mat-label>
                     <input matInput placeholder=" name" formControlName="name">
                 </mat-form-field>
             </div>
             <div class="col-md-6">
                 <mat-form-field class="w-100">
-                    <mat-label for="productname">Name Eng</mat-label>
-                    <input matInput placeholder="nameEng" formControlName="nameEng">
+                    <mat-label for="productname">Product name en</mat-label>
+                    <input matInput placeholder="nameEng" formControlName="nameEn">
                 </mat-form-field>
             </div>
 
             <div class="col-md-6">
                 <mat-form-field class="w-100">
-                    <mat-label for="productname">Description</mat-label>
+                    <mat-label for="productname">Description ar</mat-label>
                     <input matInput placeholder="Description" formControlName="description">
                 </mat-form-field>
             </div>
             <div class="col-md-6">
                 <mat-form-field class="w-100">
-                    <mat-label for="productname">Description Eng</mat-label>
-                    <input matInput placeholder="Description Eng" formControlName="descriptionEng">
+                    <mat-label for="productname">Description en</mat-label>
+                    <input matInput placeholder="Description Eng" formControlName="descriptionEn">
                 </mat-form-field>
             </div>
             <div class="col-md-6">
@@ -35,40 +35,21 @@
                     <input type="number" matInput placeholder="price" formControlName="price">
                 </mat-form-field>
             </div>
-            <div class=" col-md-6">
-                <mat-form-field class="w-100">
-                    <mat-label for="productname">acceptCharms</mat-label>
-                    <input matInput placeholder="acceptCharms" formControlName="acceptCharms">
-                </mat-form-field>
-            </div>
             <div class="col-md-6">
                 <mat-form-field class="w-100">
-                    <mat-label for="productname">acceptGraver</mat-label>
-                    <input matInput placeholder="acceptGraver" formControlName="acceptGraver">
+                    <mat-label for="productname">Discount price</mat-label>
+                    <input type="number" matInput placeholder="price" formControlName="discountPrice">
                 </mat-form-field>
             </div>
+            
             <div class="col-md-6">
                 <mat-form-field class="w-100">
-                    <mat-label for="productname">maxCharmCount</mat-label>
-                    <input matInput placeholder="maxCharmCount" formControlName="maxCharmCount">
-                </mat-form-field>
-            </div>
-            <div class="col-md-6">
-                <mat-form-field class="w-100">
-                    <mat-label for="productname">sizes</mat-label>
-                    <input matInput placeholder="sizes" formControlName="sizes">
-                </mat-form-field>
-            </div>
-            <div class="col-md-6">
-                <mat-form-field class="w-100">
-                    <mat-label for="productname">productCategoryId</mat-label>
-                    <input matInput placeholder="productCategoryId" formControlName="productCategoryId">
-                </mat-form-field>
-            </div>
-            <div class="col-md-6">
-                <mat-form-field class="w-100">
-                    <mat-label for="productname">productColors</mat-label>
-                    <input matInput placeholder="productColors" formControlName="productColors">
+                    <mat-label>Sup category</mat-label>
+                    <mat-select formControlName="subCategoryId">
+                        <mat-option *ngFor="let item of supCategoryList" [value]="item.id">
+                            {{item.name}}
+                        </mat-option>
+                    </mat-select>
                 </mat-form-field>
             </div>
         </div>

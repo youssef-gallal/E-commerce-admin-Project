@@ -33,8 +33,8 @@ export class LoginService {
     return localStorage.getItem('token')
   }
 
-  getuser(logindata: any) {
-    return this.http.post('http://116.202.13.245:2030/api/auth', logindata)
+  getUser(logindata: any) {
+    return this.http.post('http://116.202.13.245:2033/api/TokenAuth/Authenticate', logindata)
   }
 
 }

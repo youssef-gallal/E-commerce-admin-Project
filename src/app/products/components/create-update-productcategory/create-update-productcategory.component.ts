@@ -7,6 +7,10 @@ import { MatInputModule } from '@angular/material/input';
 import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators, } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { BgOrangeComponent } from "../../../shared/buttons/bg-orange/bg-orange.component";
+import { MatSelectModule } from '@angular/material/select';
+import { SubCategoryService } from '../../../sub-category/services/sub-category.service';
+import { ProductService } from '../../services/product.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 
@@ -15,7 +19,7 @@ import { BgOrangeComponent } from "../../../shared/buttons/bg-orange/bg-orange.c
   standalone: true,
   imports: [MatButtonModule,
     MatFormFieldModule, MatInputModule,
-    ReactiveFormsModule, CommonModule, MatCardModule, BgOrangeComponent],
+    ReactiveFormsModule, CommonModule, MatCardModule, BgOrangeComponent,MatSelectModule],
   templateUrl: './create-update-productcategory.component.html',
   styleUrl: './create-update-productcategory.component.css'
 })
@@ -23,27 +27,59 @@ export class CreateUpdateProductcategoryComponent implements OnInit {
 
 
   productForm!: FormGroup;
-
-  constructor(private fb: FormBuilder) { }
+  supCategoryList:any[]=[]
+  constructor(private fb: FormBuilder,
+    private productService : ProductService,
+    private route: ActivatedRoute,
+    private router: Router,
+    
+    private supCatService : SubCategoryService) { }
   ngOnInit(): void {
-    this.createproduct()
+    this.getSupCategoryList()
+    this.initForm()
+    this.route.paramMap.subscribe((param: any) => {
+      const parameters = param.params;
+      if (parameters.id) {
+        this.getSingleProduct(parameters.id)
+      }
+    });
   }
-  createproduct() {
+  initForm() {
     this.productForm = this.fb.group({
       name: ['', Validators.required],
-      nameEng: ['', Validators.required],
+      nameEn: ['', Validators.required],
       price: [0, [Validators.required, Validators.min(0)]],
+      discountPrice : [0, [Validators.required, Validators.min(0)]],
       description: [''],
-      descriptionEng: [''],
-      acceptCharms: [true],
-      acceptGraver: [true],
-      maxCharmCount: [0, Validators.min(0)],
-      sizes: [''],
-      productCategoryId: ['', Validators.required],
-      productColors : ['', Validators.required]
-      // productColors: this.fb.array([]),
-
+      descriptionEn: [''],
+      subCategoryId: ['', Validators.required],
     });
+  }
+
+  getSupCategoryList(){
+    this.supCatService.getSupCategory().subscribe((res: any) => {
+      this.supCategoryList = res.result.items
+    })
+  }
+
+  getSingleProduct(id:any){
+    this.productService.getSingleProduct(id).subscribe((res:any) => {
+      console.log(res)
+      this.patchForm(res.result)
+    })
+  }
+  patchForm(response:any){
+    this.productForm.patchValue({
+
+      name: response.name,
+      nameEn: response.nameEn,
+      price: response.price,
+      discountPrice: response.discountPrice,
+      description: response.description,
+      descriptionEn: response.descriptionEn,
+      subCategoryId: response.subCategoryId,
+    
+    })
   }
 
   // Get productColors as a FormArray
@@ -67,6 +103,12 @@ export class CreateUpdateProductcategoryComponent implements OnInit {
     } else {
       console.log('Form is invalid');
     }
+
+    this.productService.addProduct(this.productForm.value).subscribe(res => {
+      console.log(res)
+      this.router.navigate(['/products'], {
+      }).then()
+    })
   }
 }
 

@@ -24,8 +24,8 @@ import { Router } from '@angular/router';
   styleUrl: './products.component.css'
 })
 export class ProductsComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'name AR', 'name Eng', 'Actions'];
-  datasource: any = [];
+  displayedColumns: string[] = ['id','name Eng', 'name AR','price','discountPrice', 'Actions'];
+  dataSource: any = [];
   breadcrumbsLinks = [
     { link: '/home', name: 'Home' },
     { link: null, name: '  Products List' },
@@ -33,30 +33,25 @@ export class ProductsComponent implements OnInit {
 
   constructor(private dialog: MatDialog, private service: ProductService, private router: Router) { }
   ngOnInit(): void {
-    this.getproductscategory()
+    this.getProductsCategory()
   }
 
 
-  getproductscategory() {
-    this.service.getCategory().subscribe((res: any) => {
-      this.datasource = res
-      console.log(this.datasource)
+  getProductsCategory() {
+    this.service.getAllProducts().subscribe((res: any) => {
+      console.log(res)
+      this.dataSource = res.result.items
     })
   }
 
-  createUpdateCategory() {
-    this.router.navigate(['/create_products'])
+  createProduct(){
+    this.router.navigate(['/create_products'], {
+    }).then()
   }
 
-  // createUpdateCategory(data?: any) {
-  //   const dialogRef = this.dialog.open(CreateUpdateProductcategoryComponent, {
-  //     data: data,
-  //     width: '50vw'
-  //   });
+  editProduct(item:any){
+    this.router.navigate(['/edit_products/' + item.id], {
+    }).then()
+  }
 
-  //   dialogRef.afterClosed().subscribe((result: any) => {
-  //     if (result === 'action') {
-  //     }
-  //   });
-  // }
 }

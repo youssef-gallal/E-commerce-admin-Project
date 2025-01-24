@@ -87,3 +87,10 @@ mat-paginator{
 .mat-mdc-select-arrow svg{
   fill: #fff;
 }
+
+/* table */
+
+.c-table{
+  height: 70vh;
+  overflow-y:scroll;
+}
