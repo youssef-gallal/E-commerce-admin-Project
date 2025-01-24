@@ -1,0 +1,21 @@
+<div class="bg_black_dark p-3 radius-10">
+    <header>
+        <h2 class="text_white">Create Variant</h2>
+    </header>
+    <form [formGroup]="VariantForm">
+        <div class="">
+            <mat-form-field class="d-inline">
+                <mat-label>English Name</mat-label>
+                <input matInput class="" placeholder="English Name" formControlName="nameEn">
+            </mat-form-field>
+            <mat-form-field class=" d-inline">
+                <mat-label>Arabic Name</mat-label>
+                <input matInput class="" placeholder="Arabic Name" formControlName="name">
+            </mat-form-field>
+        </div>
+        <div mat-dialog-actions style="float: right;">
+            <app-transparent class="me-2" mat-dialog-close [title]="'Cancel'"></app-transparent>
+            <app-bg-orange [title]="'Submit'" (click)="onSubmit()"></app-bg-orange>
+        </div>
+    </form>
+</div>

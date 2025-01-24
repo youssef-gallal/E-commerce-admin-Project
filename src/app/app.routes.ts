@@ -6,6 +6,9 @@ import { ProductsComponent } from './products/products.component';
 import { SubCategoryComponent } from './sub-category/sub-category.component';
 import { NavComponent } from './nav/nav.component';
 import { CreateUpdateProductcategoryComponent } from './products/components/create-update-productcategory/create-update-productcategory.component';
+import { VariantComponent } from './variant/variant.component';
+import { TagComponent } from './tag/tag.component';
+import { UsersComponent } from './users/users.component';
 
 export const routes: Routes = [
     {
@@ -31,6 +34,21 @@ export const routes: Routes = [
     {
         path: 'products',
         component: ProductsComponent,
+        canActivate: [authGuardGuard],
+    },
+    {
+        path: 'Variants',
+        component: VariantComponent,
+        canActivate: [authGuardGuard],
+    },
+    {
+        path: 'Tags',
+        component: TagComponent,
+        canActivate: [authGuardGuard],
+    },
+    {
+        path: 'Users',
+        component: UsersComponent,
         canActivate: [authGuardGuard],
     },
     {

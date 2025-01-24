@@ -1,0 +1,41 @@
+<div class="bg_black_dark p-3 radius-10">
+    <header>
+        <h2 class="text_white">Create User</h2>
+    </header>
+    <form [formGroup]="Userform">
+        <div class="">
+            <mat-form-field class="d-inline">
+                <mat-label>UserName </mat-label>
+                <input matInput class="" placeholder="userName" formControlName="userName">
+            </mat-form-field>
+            <mat-form-field class=" d-inline">
+                <mat-label>Name</mat-label>
+                <input matInput class="" placeholder="Name" formControlName="name">
+            </mat-form-field>
+            <mat-form-field class=" d-inline">
+                <mat-label>surname</mat-label>
+                <input matInput class="" placeholder="surname" formControlName="surname">
+            </mat-form-field>
+            <mat-form-field class=" d-inline">
+                <mat-label>EmailAddress</mat-label>
+                <input matInput class="" placeholder="emailAddress" formControlName="emailAddress">
+            </mat-form-field>
+            <mat-form-field class=" d-inline">
+                <mat-label>Active</mat-label>
+                <input matInput class="" placeholder="isActive" formControlName="active">
+            </mat-form-field>
+            <mat-form-field class=" d-inline">
+                <mat-label>RoleNames</mat-label>
+                <input matInput class="" placeholder="Role name" formControlName="roleNames">
+            </mat-form-field>
+            <mat-form-field class=" d-inline">
+                <mat-label>Password</mat-label>
+                <input matInput class="" type="password" placeholder="Name" formControlName="password">
+            </mat-form-field>
+        </div>
+        <div mat-dialog-actions style="float: right;">
+            <app-transparent class="me-2" mat-dialog-close [title]="'Cancel'"></app-transparent>
+            <app-bg-orange [title]="'Submit'" (click)="onSubmit()"></app-bg-orange>
+        </div>
+    </form>
+</div>
