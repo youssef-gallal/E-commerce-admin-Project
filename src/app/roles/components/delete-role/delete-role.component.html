@@ -1,0 +1,9 @@
+<section class="bg_black_dark p-3 radius-10">
+    <header>
+        <h2 class="text_white">Are you sure you want delete this category ({{data?.name}})</h2>
+    </header>
+    <div mat-dialog-actions style="float: right;">
+        <app-transparent class="me-2" mat-dialog-close [title]="'Cancel'"></app-transparent>
+        <app-bg-red [title]="'Delete'" (click)="deleteVar()"></app-bg-red>
+    </div>
+</section>

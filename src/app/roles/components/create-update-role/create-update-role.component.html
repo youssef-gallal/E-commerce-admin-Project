@@ -1,0 +1,33 @@
+<div class="bg_black_dark p-3 radius-10">
+    <header>
+        <h2 class="text_white">Create Role</h2>
+    </header>
+    <form [formGroup]="RoleForm">
+        <div class="">
+            <mat-form-field class="d-inline">
+                <mat-label>Name</mat-label>
+                <input matInput class="" placeholder="Name" formControlName="name">
+            </mat-form-field>
+            <mat-form-field class=" d-inline">
+                <mat-label>displayName</mat-label>
+                <input matInput class="" placeholder="displayName" formControlName="displayName">
+            </mat-form-field>
+            <mat-form-field class=" d-inline">
+                <mat-label>normalizedName</mat-label>
+                <input matInput class="" placeholder="normalizedName" formControlName="normalizedName">
+            </mat-form-field>
+            <mat-form-field class=" d-inline">
+                <mat-label>description</mat-label>
+                <input matInput class="" placeholder="description" formControlName="description">
+            </mat-form-field>
+            <mat-form-field class=" d-inline">
+                <mat-label>grantedPermissions</mat-label>
+                <input matInput class="" placeholder="grantedPermissions" formControlName="grantedPermissions">
+            </mat-form-field>
+        </div>
+        <div mat-dialog-actions style="float: right;">
+            <app-transparent class="me-2" mat-dialog-close [title]="'Cancel'"></app-transparent>
+            <app-bg-orange [title]="'Submit'" (click)="onSubmit()"></app-bg-orange>
+        </div>
+    </form>
+</div>

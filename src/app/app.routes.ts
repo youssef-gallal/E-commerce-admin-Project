@@ -9,6 +9,8 @@ import { CreateUpdateProductcategoryComponent } from './products/components/crea
 import { VariantComponent } from './variant/variant.component';
 import { TagComponent } from './tag/tag.component';
 import { UsersComponent } from './users/users.component';
+import { RolesComponent } from './roles/roles.component';
+import { PermissionsComponent } from './permissions/permissions.component';
 
 export const routes: Routes = [
     {
@@ -49,6 +51,16 @@ export const routes: Routes = [
     {
         path: 'Users',
         component: UsersComponent,
+        canActivate: [authGuardGuard],
+    },
+    {
+        path: 'Roles',
+        component: RolesComponent,
+        canActivate: [authGuardGuard],
+    },
+    {
+        path: 'Permisions',
+        component: PermissionsComponent,
         canActivate: [authGuardGuard],
     },
     {
