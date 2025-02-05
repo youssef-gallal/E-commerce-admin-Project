@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogModule, } from '@angular/material/dialog';
+import { MatDialog, MatDialogModule, } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -11,13 +11,17 @@ import { MatSelectModule } from '@angular/material/select';
 import { SubCategoryService } from '../../../sub-category/services/sub-category.service';
 import { ProductService } from '../../services/product.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import {MatIconModule} from '@angular/material/icon';
+import { AssignTagsProductComponent } from '../assign-tags-product/assign-tags-product.component';
+import { TagService } from '../../../tag/services/tag.service';
+import { AssignProductVariantComponent } from '../assign-product-variant/assign-product-variant.component';
 
 
 
 @Component({
   selector: 'app-create-update-productcategory',
   standalone: true,
-  imports: [MatButtonModule,
+  imports: [MatButtonModule,MatIconModule,
     MatFormFieldModule, MatInputModule,
     ReactiveFormsModule, CommonModule, MatCardModule, BgOrangeComponent,MatSelectModule],
   templateUrl: './create-update-productcategory.component.html',
@@ -28,19 +32,23 @@ export class CreateUpdateProductcategoryComponent implements OnInit {
 
   productForm!: FormGroup;
   supCategoryList:any[]=[]
+  productId:any
   constructor(private fb: FormBuilder,
     private productService : ProductService,
     private route: ActivatedRoute,
     private router: Router,
-    
-    private supCatService : SubCategoryService) { }
+    private dialog: MatDialog,
+    private supCatService : SubCategoryService,
+    private tagsService : TagService) { }
   ngOnInit(): void {
     this.getSupCategoryList()
     this.initForm()
     this.route.paramMap.subscribe((param: any) => {
-      const parameters = param.params;
-      if (parameters.id) {
-        this.getSingleProduct(parameters.id)
+      this.productId = param.params.id;
+
+      if ( this.productId) {
+        this.getSingleProduct( this.productId)
+        this.getProductTags()
       }
     });
   }
@@ -82,19 +90,60 @@ export class CreateUpdateProductcategoryComponent implements OnInit {
     })
   }
 
-  // Get productColors as a FormArray
-  // get productColors(): FormArray {
-  //   return this.productForm.get('productColors') as FormArray;
-  // }
 
-  // Add a new color
-  // addColor(): void {
-  //   const colorGroup = this.fb.group({
-  //     name: ['', Validators.required],
-  //     hexValue: ['', Validators.required],
-  //   });
-  //   this.productColors.push(colorGroup);
-  // }
+// tags
+  addTags(){
+    const dialogRef = this.dialog.open(AssignTagsProductComponent, {
+      // data: data,
+      width: '50vw'
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      if (result) {
+        let data = {
+          productId :this.productId,
+          tagsIds : result
+        }
+        console.log(data)
+        this.tagsService.addProductTag(data).subscribe(res => {
+          console.log(res)
+        })
+      }
+    });
+  }
+
+  getProductTags(){
+    this.tagsService.getProductTag(this.productId).subscribe(res => {
+      console.log(res)
+    })
+  }
+
+  addVariant(){
+    const dialogRef = this.dialog.open(AssignProductVariantComponent, {
+      // data: data,
+      width: '50vw'
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      if (result) {
+        let data = {
+          productId :this.productId,
+          tagsIds : result
+        }
+        console.log(data)
+        this.tagsService.addProductTag(data).subscribe(res => {
+          console.log(res)
+        })
+      }
+    });
+  }
+
+  getProductVariant(){
+    this.tagsService.getProductTag(this.productId).subscribe(res => {
+      console.log(res)
+    })
+  }
+  
 
 
   onSubmit() {
@@ -114,6 +163,20 @@ export class CreateUpdateProductcategoryComponent implements OnInit {
 
 
 
+
+  // Get productColors as a FormArray
+  // get productColors(): FormArray {
+  //   return this.productForm.get('productColors') as FormArray;
+  // }
+
+  // Add a new color
+  // addColor(): void {
+  //   const colorGroup = this.fb.group({
+  //     name: ['', Validators.required],
+  //     hexValue: ['', Validators.required],
+  //   });
+  //   this.productColors.push(colorGroup);
+  // }
 
 
 

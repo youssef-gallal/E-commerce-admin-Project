@@ -94,3 +94,13 @@ mat-paginator{
   height: 70vh;
   overflow-y:scroll;
 }
+
+td , th {
+  text-wrap: nowrap;
+}
+
+/* hr */
+
+hr {
+  border-top: 1px solid #fff !important;
+}

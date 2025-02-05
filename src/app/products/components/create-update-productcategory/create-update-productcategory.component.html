@@ -53,6 +53,23 @@
                 </mat-form-field>
             </div>
         </div>
+        <hr >
+        <div>
+            <h2 class="text_white">Tags</h2>
+            <button (click)="addTags()" class="text_white" mat-flat-button color="primary" >
+                <mat-icon>add</mat-icon>
+                add tags
+            </button>
+        </div>
+        <hr>
+        <div>
+            <h2 class="text_white">Variant</h2>
+            <button (click)="addVariant()" class="text_white" mat-flat-button color="primary" >
+                <mat-icon>add</mat-icon>
+                add tags
+            </button>
+        </div>
+
         <div style="float: right">
             <app-bg-orange [title]="'Submit'" (click)="onSubmit()"></app-bg-orange>
         </div>

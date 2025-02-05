@@ -1,0 +1,19 @@
+<div class="bg_black_dark p-3 radius-10">
+    <header>
+        <h2 class="text_white">All Tags</h2>
+    </header>
+    
+    <mat-form-field class="w-100">
+        <mat-label>Choose tag</mat-label>
+        <mat-select [formControl]="selectedTags" multiple>
+          @for (tag of tagsList; track tag) {
+            <mat-option [value]="tag.id">{{tag.name}}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <div mat-dialog-actions style="float: right;">
+        <app-transparent class="me-2" mat-dialog-close [title]="'Cancel'"></app-transparent>
+        <app-bg-orange [title]="'Submit'" (click)="onSubmit()"></app-bg-orange>
+    </div>
+</div>

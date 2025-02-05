@@ -25,4 +25,13 @@ export class TagService {
     return this.http.put(`${environment.baseUrl}/Tag/Update`, data)
   }
 
+  // products tags
+
+  addProductTag(data:any){
+    return this.http.post(`${environment.baseUrl}/ProductTag/CreateProductTags`, data)
+  }
+  getProductTag(id:any){
+    return this.http.get(`${environment.baseUrl}/ProductTag/GetAll?ProductId=${id}`)
+  }
+
 }
