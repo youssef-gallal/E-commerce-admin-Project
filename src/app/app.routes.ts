@@ -11,6 +11,10 @@ import { TagComponent } from './tag/tag.component';
 import { UsersComponent } from './users/users.component';
 import { RolesComponent } from './roles/roles.component';
 import { PermissionsComponent } from './permissions/permissions.component';
+import { OrderListComponent } from './order-list/order-list.component';
+import { OrderShippingComponent } from './order-shipping/order-shipping.component';
+import { OrderItemComponent } from './order-item/order-item.component';
+import { OrderPaymentComponent } from './order-payment/order-payment.component';
 
 export const routes: Routes = [
     {
@@ -63,6 +67,27 @@ export const routes: Routes = [
         component: PermissionsComponent,
         canActivate: [authGuardGuard],
     },
+    {
+        path: 'Orderlist',
+        component: OrderListComponent,
+        canActivate: [authGuardGuard],
+    },
+    {
+        path: 'OrderShipping',
+        component: OrderShippingComponent,
+        canActivate: [authGuardGuard],
+    },
+    {
+        path: 'OrderItem',
+        component: OrderItemComponent,
+        canActivate: [authGuardGuard],
+    },
+    {
+        path: 'OrderPayment',
+        component: OrderPaymentComponent,
+        canActivate: [authGuardGuard],
+    },
+
     {
         path: 'create_products',
         component: CreateUpdateProductcategoryComponent,

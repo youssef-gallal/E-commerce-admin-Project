@@ -65,11 +65,26 @@
                     <span>Permisions</span>
                 </a>
             </li>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header mat-list-item>
+                    <mat-icon>shopping_cart</mat-icon>
+                    <span>Orders</span>
+                </mat-expansion-panel-header>
+                <mat-action-list>
+                    <a mat-list-item routerLink="/Orderlist" routerLinkActive="active">Order
+                        List</a>
+                    <a mat-list-item routerLink="/OrderShipping" routerLinkActive="active">Order Shipping</a>
+                    <a mat-list-item routerLink="/OrderPayment" routerLinkActive="active">Order Payment</a>
+                    <a mat-list-item routerLink="/OrderItem" routerLinkActive="active">Order Item</a>
+                </mat-action-list>
+            </mat-expansion-panel>
 
-        </mat-nav-list>
 
-        <!-- <button mat-icon-button (click)="toggleMinimize()">
+
+
+            <!-- <button mat-icon-button (click)="toggleMinimize()">
             <mat-icon>menu</mat-icon>
         </button> -->
+        </mat-nav-list>
     </mat-sidenav>
 </mat-sidenav-container>

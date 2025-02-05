@@ -3,7 +3,7 @@
 html,
 body {
   height: 100vh;
-  background-color: #22282e!important;
+  background-color: #22282e !important;
 
 }
 
@@ -11,9 +11,11 @@ body {
   margin: 0;
   overflow: hidden;
 }
+
 h1 {
   font-size: 20px !important;
 }
+
 /* global color */
 
 .text_white {
@@ -22,13 +24,13 @@ h1 {
 
 /* global background */
 
-.bg_black_dark{
+.bg_black_dark {
   background: #22282e !important;
 }
 
 /* global border radius */
 
-.radius-10{
+.radius-10 {
   border-radius: 10px;
 }
 
@@ -43,23 +45,28 @@ h1 {
 table {
   border-radius: 10px;
 }
-thead{
+
+thead {
   background: #293138 !important;
 }
+
 thead tr {
   color: #aab8c5 !important;
 }
+
 .mat-mdc-table .mat-mdc-header-cell:first-child {
   border-top-left-radius: 6px;
 }
+
 .mat-mdc-table .mat-mdc-header-cell:last-child {
   border-top-right-radius: 6px !important;
 }
 
 
-tbody{
+tbody {
   background: #282f36 !important;
 }
+
 tbody td {
   color: #fff !important;
 
@@ -67,35 +74,46 @@ tbody td {
 
 /* paginator */
 
-mat-paginator{
+mat-paginator {
   background: #293138 !important;
   color: #fff !important;
 }
 
-.mat-mdc-paginator-container{
+mat-expansion-panel {
+  background: #293138 !important;
+  color: #fff !important;
+}
+
+
+.mat-mdc-paginator-container {
   justify-content: center !important;
 }
-.mat-mdc-icon-button .mat-mdc-paginator-icon{
+
+.mat-mdc-icon-button .mat-mdc-paginator-icon {
   fill: #fff !important;
 }
-.mat-mdc-icon-button[disabled] .mat-mdc-paginator-icon{
+
+.mat-mdc-icon-button[disabled] .mat-mdc-paginator-icon {
   fill: gray !important;
 }
-.mat-mdc-select-value-text{
+
+.mat-mdc-select-value-text {
   color: #000;
 }
-.mat-mdc-select-arrow svg{
+
+.mat-mdc-select-arrow svg {
   fill: #fff;
 }
 
 /* table */
 
-.c-table{
+.c-table {
   height: 70vh;
-  overflow-y:scroll;
+  overflow-y: scroll;
 }
 
-td , th {
+td,
+th {
   text-wrap: nowrap;
 }
 
