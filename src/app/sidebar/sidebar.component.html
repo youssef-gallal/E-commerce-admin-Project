@@ -65,22 +65,29 @@
                     <span>Permisions</span>
                 </a>
             </li>
-            <mat-expansion-panel>
-                <mat-expansion-panel-header mat-list-item>
-                    <mat-icon>shopping_cart</mat-icon>
+
+            <li>
+                <a mat-list-item class="nav-item" (click)="toggleDropdown()">
+                    <mat-icon matListItemIcon>shopping_cart</mat-icon>
                     <span>Orders</span>
-                </mat-expansion-panel-header>
-                <mat-action-list>
-                    <a mat-list-item routerLink="/Orderlist" routerLinkActive="active">Order
-                        List</a>
-                    <a mat-list-item routerLink="/OrderShipping" routerLinkActive="active">Order Shipping</a>
-                    <a mat-list-item routerLink="/OrderPayment" routerLinkActive="active">Order Payment</a>
-                    <a mat-list-item routerLink="/OrderItem" routerLinkActive="active">Order Item</a>
-                </mat-action-list>
-            </mat-expansion-panel>
-
-
-
+                    <mat-icon class="dropdown-icon" [class.open]="isDropdownOpen">expand_more</mat-icon>
+                </a>
+                <ul [class.active]="isDropdownOpen" class="submenu">
+                    <li>
+                        <a mat-list-item routerLink="/Orderlist" routerLinkActive="active">Order
+                            List</a>
+                    </li>
+                    <li>
+                        <a mat-list-item routerLink="/OrderShipping" routerLinkActive="active">Order Shipping</a>
+                    </li>
+                    <li>
+                        <a mat-list-item routerLink="/OrderPayment" routerLinkActive="active">Order Payment</a>
+                    </li>
+                    <li>
+                        <a mat-list-item routerLink="/OrderItem" routerLinkActive="active">Order Item</a>
+                    </li>
+                </ul>
+            </li>
 
             <!-- <button mat-icon-button (click)="toggleMinimize()">
             <mat-icon>menu</mat-icon>
