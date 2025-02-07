@@ -122,3 +122,7 @@ th {
 hr {
   border-top: 1px solid #fff !important;
 }
+
+span.mat-mdc-list-item-unscoped-content.mdc-list-item__primary-text {
+  color: #dfb6b6;
+}
